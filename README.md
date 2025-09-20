@@ -211,4 +211,5 @@ A: 设置 `PS` 环境变量，或在优选IP中使用 `#备注` 格式
 
 - **Cloudflare Workers**：提供优秀的 Serverless 平台
 - **[白嫖哥](https://t.me/bestip_one)**：提供高质量的免费节点服务
+- **[ktff](https://t.me/zero_freez)**：提供高质量的免费节点服务
 - [肥羊短链](https://suburl.v1.mk/)：感谢提供免费短链服务

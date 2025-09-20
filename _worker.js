@@ -61,7 +61,7 @@ export default {
             }
             subConfig = url.searchParams.get('subconfig') || subConfig;
 
-            const uuid_json = await getLocalData(bphost);
+            const uuid_json = await getLocalData(bphost, env.UUID);
             proxyIP = url.searchParams.get('proxyip') || proxyIP;
             const socks5 = (url.searchParams.has('socks5') && url.searchParams.get('socks5') != '') ? url.searchParams.get('socks5') : null;
             const 全局socks5 = (url.searchParams.has('global')) ? true : false;
@@ -406,7 +406,7 @@ async function getSubData(host) {
     return result;
 }
 
-async function getLocalData(host) {
+async function getLocalData(host, uuid = null) {
     function generateUUIDv4() {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
             const r = Math.random() * 16 | 0;
@@ -414,10 +414,11 @@ async function getLocalData(host) {
             return v.toString(16);
         });
     }
-    
+
+    const finalUUID = (uuid && uuid.trim() !== '') ? uuid.trim() : generateUUIDv4();
     return [
         {
-            "uuid": generateUUIDv4(),
+            "uuid": finalUUID,
             "host": host
         }
     ];
